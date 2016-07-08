@@ -22,8 +22,9 @@
         android:textColor="@color/colorText"/>
     <ImageView
         android:id="@+id/image_view"
-        android:layout_width="1000dp"
+        android:layout_width="800dp"
         android:layout_height="200dp"
+        android:src="@drawable/ic_imageproject"
         android:layout_below="@+id/text_view"/>
 
     <Button
@@ -31,27 +32,7 @@
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_below="@+id/image_view"
-        android:text="FIND A DOC"
+        android:text="@string/find_a_doc"
         android:layout_centerHorizontal="true"/>
-    <Button
-        android:id="@+id/button2_view"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:text="FIND A DOC"
-        android:layout_below="@+id/button_view"
-        android:layout_centerHorizontal="true"/>
-    <Button
-        android:id="@id/button3_view"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:text="FIND A DOC"
-        android:layout_below="@+id/button2_view"
-        android:layout_centerHorizontal="true"/>
-    <Button
-        android:id="@+id/button4_view"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:text="FIND A DOC"
-        android:layout_below="@+id/button3_view"
-        android:layout_centerHorizontal="true"/>
+
 </RelativeLayout>
