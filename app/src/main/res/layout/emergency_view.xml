@@ -10,4 +10,5 @@
         android:textColor="@color/colorText"
         android:text="EMERGENCY"/>
 
+
 </RelativeLayout>
