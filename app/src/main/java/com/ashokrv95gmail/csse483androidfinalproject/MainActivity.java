@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +29,11 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         final Button button = (Button) findViewById(R.id.button_view);
+        Button button1 = (Button)findViewById(R.id.buttonemergency_view);
+        Button button2 = (Button)findViewById(R.id.buttonfixappointment_view);
+        Button button3 = (Button) findViewById(R.id.buttonpay_view);
+
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,6 +45,93 @@ public class MainActivity extends AppCompatActivity {
                         View view = getActivity().getLayoutInflater().inflate(R.layout.hospital_view, null);
                         builder.setView(view);
                         builder.setTitle("HOSPITALS");
+                        // boolean checked = ((RadioButton) view).isChecked();
+
+                        builder.setPositiveButton(android.R.string.ok, null);
+
+
+
+
+
+
+                        builder.setNegativeButton(android.R.string.cancel,null);
+
+                        return builder.create();
+                    }
+                };
+                df.show(getSupportFragmentManager(),"select");
+
+            }
+        });
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment df = new DialogFragment(){
+                    @NonNull
+                    @Override
+                    public Dialog onCreateDialog(Bundle savedInstanceState){
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                        View view = getActivity().getLayoutInflater().inflate(R.layout.emergency_view, null);
+                        builder.setView(view);
+                        builder.setTitle("EMERGENCY");
+                        // boolean checked = ((RadioButton) view).isChecked();
+
+                        builder.setPositiveButton(android.R.string.ok, null);
+
+
+
+
+
+
+                        builder.setNegativeButton(android.R.string.cancel,null);
+
+                        return builder.create();
+                    }
+                };
+                df.show(getSupportFragmentManager(),"select");
+
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment df = new DialogFragment(){
+                    @NonNull
+                    @Override
+                    public Dialog onCreateDialog(Bundle savedInstanceState){
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                        View view = getActivity().getLayoutInflater().inflate(R.layout.fix_appointment, null);
+                        builder.setView(view);
+                        builder.setTitle("FIX APPOINTMENT");
+                        // boolean checked = ((RadioButton) view).isChecked();
+
+                        builder.setPositiveButton(android.R.string.ok, null);
+
+
+
+
+
+
+                        builder.setNegativeButton(android.R.string.cancel,null);
+
+                        return builder.create();
+                    }
+                };
+                df.show(getSupportFragmentManager(),"select");
+
+            }
+        });
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment df = new DialogFragment(){
+                    @NonNull
+                    @Override
+                    public Dialog onCreateDialog(Bundle savedInstanceState){
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                        View view = getActivity().getLayoutInflater().inflate(R.layout.paybills_view, null);
+                        builder.setView(view);
+                        builder.setTitle("PAY BILLS");
                         // boolean checked = ((RadioButton) view).isChecked();
 
                         builder.setPositiveButton(android.R.string.ok, null);

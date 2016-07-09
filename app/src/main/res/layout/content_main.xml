@@ -34,5 +34,26 @@
         android:layout_below="@+id/image_view"
         android:text="@string/find_a_doc"
         android:layout_centerHorizontal="true"/>
+    <Button
+        android:id="@+id/buttonemergency_view"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/button_view"
+        android:text="@string/emergency"
+        android:layout_centerHorizontal="true"/>
+    <Button
+        android:id="@+id/buttonfixappointment_view"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/buttonemergency_view"
+        android:text="@string/fix_appointment"
+        android:layout_centerHorizontal="true"/>
+    <Button
+        android:id="@+id/buttonpay_view"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/buttonfixappointment_view"
+        android:text="@string/pay_bills"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>
