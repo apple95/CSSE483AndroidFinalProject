@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity2Hospital"></activity>
-        <activity android:name=".Activity3Hospital"></activity>
+        <activity android:name=".Activity3TerreHauteHospital"></activity>
     </application>
 
 </manifest>

@@ -32,7 +32,7 @@ public class NameAdapterTerreHaute extends BaseAdapter {
 
     private String getRandomName(int pos){
         String[] names = new String[]{
-                "UnionHospital", "TerreHaute GeneralHospital"
+                "UnionHospital", "TerreHaute Regional Hospital"
 
         };
         int count = names.length;
@@ -73,7 +73,7 @@ public class NameAdapterTerreHaute extends BaseAdapter {
                 positionTextView.setText(name);
                 break;
 
-            case "TerreHaute GeneralHospital":
+            case "TerreHaute Regional Hospital":
                 positionTextView.setText(name);
                 break;
             default:
