@@ -28,6 +28,10 @@ public class Activity3HospitalDep extends Activity{
                 if(position == 0){
                 Intent myIntent = new Intent(view.getContext(), Activity3HUTDocAllergy.class);
                 startActivityForResult(myIntent,1);}
+                if(position == 11){
+                    Intent myIntent = new Intent(view.getContext(), Activity3HUTDocGeneralSurgery.class);
+                    startActivityForResult(myIntent,1);
+                }
             }
         });
 
