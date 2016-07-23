@@ -20,6 +20,9 @@ public class Activity3HospitalDep extends Activity{
         ListView listView = (ListView)findViewById(R.id.list_view);
         mAdapter = new NameAdapterTUDep(this);
         listView.setAdapter(mAdapter);
+        if(listView.getOnItemClickListener().toString().equals("Allergy")||listView.getOnItemClickListener().toString().equals("Family Medicine")){
+            
+        }
 
 //        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
