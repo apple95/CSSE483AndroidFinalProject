@@ -23,6 +23,9 @@
         <activity android:name=".Activity3HospitalDep"></activity>
         <activity android:name=".Activity3HUTDocAllergy"></activity>
         <activity android:name="Activity3HUTDocGeneralSurgery"></activity>
+        <activity android:name=".Activity2Emergency"></activity>
+        <activity android:name=".Activity2FixAppointment"></activity>
+        <activity android:name=".Activity2PayBill"></activity>
     </application>
 
 </manifest>
