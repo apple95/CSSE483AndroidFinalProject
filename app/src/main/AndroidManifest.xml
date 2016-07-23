@@ -20,6 +20,7 @@
         </activity>
         <activity android:name=".Activity2Hospital"></activity>
         <activity android:name=".Activity3TerreHauteHospital"></activity>
+        <activity android:name=".Activity3HospitalDep"></activity>
     </application>
 
 </manifest>
