@@ -3,15 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="@color/colorText"
-        android:text="LIST OF HOSPITALS TO BE ADDED SOON"/>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+    <EditText
+
+        android:id="@+id/dialog_add_zip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter zip code"
+        />
 
 
 

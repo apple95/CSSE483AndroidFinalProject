@@ -8,4 +8,5 @@ import java.util.ArrayList;
 public class Hospital {
     ArrayList<Doctor> doctors;
     ArrayList<Department> departments;
+
 }

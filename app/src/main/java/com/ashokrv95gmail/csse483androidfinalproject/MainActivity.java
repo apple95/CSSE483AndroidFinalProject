@@ -12,10 +12,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
@@ -45,9 +47,36 @@ public class MainActivity extends AppCompatActivity {
                         View view = getActivity().getLayoutInflater().inflate(R.layout.hospital_view, null);
                         builder.setView(view);
                         builder.setTitle("HOSPITALS");
+                        final EditText edit = (EditText)view.findViewById(R.id.dialog_add_zip);
+                        Log.e("A",edit.getText().toString());
+
                         // boolean checked = ((RadioButton) view).isChecked();
 
-                        builder.setPositiveButton(android.R.string.ok, null);
+                        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                if(edit.getText().toString().equals("47803")){
+                                    DialogFragment df = new DialogFragment(){
+                                        @NonNull
+                                        @Override
+                                        public Dialog onCreateDialog(Bundle savedInstanceState){
+                                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                                            View view = getActivity().getLayoutInflater().inflate(R.layout.hospital_view, null);
+                                            builder.setView(view);
+                                            builder.setTitle("HOSPITALS");
+                                            builder.setMessage(TerreHaute.getHospital());
+                                            builder.setPositiveButton(android.R.string.ok,null);
+                                            builder.setNegativeButton(android.R.string.cancel,null);
+
+                                            return builder.create();
+                                        }
+                                    };
+                                    df.show(getSupportFragmentManager(),"select");
+
+
+                                }
+                            }
+                        });
 
 
 
