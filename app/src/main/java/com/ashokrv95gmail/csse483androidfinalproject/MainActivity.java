@@ -2,6 +2,7 @@ package com.ashokrv95gmail.csse483androidfinalproject;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -39,56 +40,40 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogFragment df = new DialogFragment(){
-                    @NonNull
-                    @Override
-                    public Dialog onCreateDialog(Bundle savedInstanceState){
-                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                        View view = getActivity().getLayoutInflater().inflate(R.layout.hospital_view, null);
-                        builder.setView(view);
-                        builder.setTitle("HOSPITALS");
-                        final EditText edit = (EditText)view.findViewById(R.id.dialog_add_zip);
-                        Log.e("A",edit.getText().toString());
-
-                        // boolean checked = ((RadioButton) view).isChecked();
-
-                        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                if(edit.getText().toString().equals("47803")){
-                                    DialogFragment df = new DialogFragment(){
-                                        @NonNull
-                                        @Override
-                                        public Dialog onCreateDialog(Bundle savedInstanceState){
-                                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                                            View view = getActivity().getLayoutInflater().inflate(R.layout.hospital_view, null);
-                                            builder.setView(view);
-                                            builder.setTitle("HOSPITALS");
-                                            builder.setMessage(TerreHaute.getHospital());
-                                            builder.setPositiveButton(android.R.string.ok,null);
-                                            builder.setNegativeButton(android.R.string.cancel,null);
-
-                                            return builder.create();
-                                        }
-                                    };
-                                    df.show(getSupportFragmentManager(),"select");
-
-
-                                }
-                            }
-                        });
-
-
-
-
-
-
-                        builder.setNegativeButton(android.R.string.cancel,null);
-
-                        return builder.create();
-                    }
-                };
-                df.show(getSupportFragmentManager(),"select");
+                Intent myIntent = new Intent(v.getContext(), Activity2Hospital.class);
+                startActivityForResult(myIntent,1);
+//                DialogFragment df = new DialogFragment(){
+//                    @NonNull
+//                    @Override
+//                    public Dialog onCreateDialog(Bundle savedInstanceState){
+//                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+//                        View view = getActivity().getLayoutInflater().inflate(R.layout.hospital_view, null);
+//                        builder.setView(view);
+//                        builder.setTitle("HOSPITALS");
+//                        final EditText edit = (EditText)view.findViewById(R.id.dialog_add_zip);
+//                        Log.e("A",edit.getText().toString());
+//                        edit.
+//
+//                        // boolean checked = ((RadioButton) view).isChecked();
+//
+//                        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                if(edit.getText().toString().equals("47803")){
+//                                    Intent myIntent = new Intent(v.getContext(), Activity2.class);
+//                                    startActivityForResult(myIntent, 0);
+//
+//
+//                                }
+//                            }
+//                        });
+//
+//                        builder.setNegativeButton(android.R.string.cancel,null);
+//
+//                        return builder.create();
+//                    }
+//                };
+//                df.show(getSupportFragmentManager(),"select");
 
             }
         });
