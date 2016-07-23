@@ -8,4 +8,6 @@ import java.util.ArrayList;
 public class Department {
     ArrayList<Doctor> doctors;
     ArrayList<Appointment> appointments;
+
+
 }
