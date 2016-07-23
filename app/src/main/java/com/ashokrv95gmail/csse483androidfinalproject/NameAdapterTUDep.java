@@ -46,7 +46,7 @@ public class NameAdapterTUDep extends BaseAdapter{
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return mNames.get(position);
     }
 
     @Override
