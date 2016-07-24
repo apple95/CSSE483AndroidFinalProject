@@ -2,6 +2,7 @@
     <string name="app_name">CSSE483AndroidFinalProject</string>
     <string name="action_settings">Settings</string>
     <string name="find_a_doc">FIND A DOC</string>
+    <string name="login">Log in</string>
     <string name="emergency">EMERGENCY</string>
     <string name="fix_appointment">FIX APPOINTMENT</string>
     <string name="pay_bills">PAY BILLS</string>
