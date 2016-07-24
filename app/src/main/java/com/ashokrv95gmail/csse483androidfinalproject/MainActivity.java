@@ -103,6 +103,10 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        } else if (id == R.id.log_out_item) {
+            name = "";
+            password = "";
+            Toast.makeText(getBaseContext(), "Logged out", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.log_in_item) {
             DialogFragment df = new DialogFragment() {
                 @NonNull

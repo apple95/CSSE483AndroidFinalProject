@@ -6,4 +6,5 @@
     <string name="emergency">EMERGENCY</string>
     <string name="fix_appointment">FIX APPOINTMENT</string>
     <string name="pay_bills">PAY BILLS</string>
+    <string name="log_out">Log out</string>
 </resources>
