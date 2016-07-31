@@ -9,7 +9,7 @@ import android.os.Bundle;
 public class AllergyDoc extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main3);
+        setContentView(R.layout.docdetail);
 
     }
 
