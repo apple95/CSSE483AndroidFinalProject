@@ -26,6 +26,7 @@
         <activity android:name=".Activity2Emergency"></activity>
         <activity android:name=".Activity2FixAppointment"></activity>
         <activity android:name=".Activity2PayBill"></activity>
+        <activity android:name=".AllergyDoc"></activity>
     </application>
 
 </manifest>

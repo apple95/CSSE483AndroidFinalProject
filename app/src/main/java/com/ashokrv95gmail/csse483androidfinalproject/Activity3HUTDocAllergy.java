@@ -19,5 +19,16 @@ public class Activity3HUTDocAllergy extends Activity{
         ListView listView = (ListView) findViewById(R.id.list_view);
         mAdapter = new NameAdapterTUDocAllergy(this);
         listView.setAdapter(mAdapter);
+
+        int  index = mAdapter.mNames.indexOf("Allergy");
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(position == 0){
+                    Intent myIntent = new Intent(view.getContext(), AllergyDoc.class);
+                    startActivityForResult(myIntent,1);}
+
+            }
+        });
     }
 }
