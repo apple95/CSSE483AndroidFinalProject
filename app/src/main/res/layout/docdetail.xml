@@ -3,24 +3,33 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
+        android:id="@+id/docname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="name"/>
     <TextView
+        android:id="@+id/docphone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Phone "/>
+        android:text="Phone "
+        android:layout_below = "@+id/docname"/>
     <TextView
+        android:id="@+id/docid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Doctor id"/>
+        android:text="Doctor id"
+        android:layout_below = "@+id/docphone"/>
     <TextView
+        android:id="@+id/docofficehours"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="office hours"/>
+        android:text="office hours"
+        android:layout_below = "@+id/docid"/>
    <RadioButton
+       android:id="@+id/hourAppt"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:text="10AM - 10:30 AM"/>
+       android:text="10AM - 10:30 AM"
+       android:layout_below = "@+id/docofficehours"/>
 
 </LinearLayout>
