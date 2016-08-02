@@ -126,7 +126,6 @@ public class MainActivity extends AppCompatActivity {
         } else if (id == R.id.log_in_item) {
             if (mAuth.getCurrentUser() != null) {
                 logout();
-                log_in_out.setTitle("LOG IN");
             } else {
                 DialogFragment df = new DialogFragment() {
                     @NonNull
@@ -148,14 +147,12 @@ public class MainActivity extends AppCompatActivity {
                                 if (!nameEditText.getText().toString().isEmpty()) {
                                     name = nameEditText.getText().toString();
                                 } else {
-                                    log_in_out.setTitle("LOG IN");
-                                    return;
+                                    name = "";
                                 }
                                 if (!passwordEditText.getText().toString().isEmpty()) {
                                     password = passwordEditText.getText().toString();
                                 } else {
-                                    log_in_out.setTitle("LOG IN");
-                                    return;
+                                    password = "";
                                 }
 
                                 emailLogIn();
@@ -174,8 +171,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void emailLogIn() {
-        if (!(name == null || name.length() == 0)) {
+        if (!(name == null || name.length() == 0) && !(password == null || password.length() == 0)) {
             mAuth.signInWithEmailAndPassword(name,password).addOnCompleteListener(mOnCompleteListener);
+        } else {
+            Toast.makeText(getBaseContext(), "Log in failure: Form not filled out correctly", Toast.LENGTH_SHORT).show();
+            log_in_out.setTitle("LOG IN");
         }
 
     }
@@ -220,9 +220,13 @@ public class MainActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task task) {
                 if(!task.isSuccessful()) {
                     Toast.makeText(getBaseContext(), "Failed to log in as: " + name, Toast.LENGTH_SHORT).show();
+                    log_in_out.setTitle("LOG IN");
                 } else {
                     FirebaseUser user = mAuth.getCurrentUser();
                     Toast.makeText(getBaseContext(), "Logged in as: " + user.getEmail(), Toast.LENGTH_SHORT).show();
+                    name = "";
+                    password = "";
+                    log_in_out.setTitle("LOG OUT");
                 }
             }
         };
