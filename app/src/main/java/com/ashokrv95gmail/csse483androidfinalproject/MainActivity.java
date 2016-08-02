@@ -2,6 +2,7 @@ package com.ashokrv95gmail.csse483androidfinalproject;
 
 import android.app.Application;
 import android.app.Dialog;
+import android.content.ClipData;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private OnCompleteListener mOnCompleteListener;
+    private MenuItem log_in_out;
 
 
     @Override
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         mAuth = FirebaseAuth.getInstance();
+        logout();
         initializeListeners();
 
         final Button button = (Button) findViewById(R.id.button_view);
@@ -105,6 +108,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        log_in_out = menu.getItem(0);
+        Log.d("TTT", "onCreateOptionsMenu: " + log_in_out.getTitle());
         return true;
     }
 
@@ -118,59 +123,68 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
-        } else if (id == R.id.log_out_item) {
-            name = "";
-            password = "";
-            Toast.makeText(getBaseContext(), "Logged out", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.log_in_item) {
-            DialogFragment df = new DialogFragment() {
-                @NonNull
-                @Override
-                public Dialog onCreateDialog(Bundle savedInstanceState) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                    final View view = getActivity().getLayoutInflater().inflate(R.layout.login, null);
-                    builder.setView(view);
-                    // capture
-                    final EditText nameEditText = (EditText) view.findViewById(R.id.log_in_username);
-                    final EditText passwordEditText = (EditText) view.findViewById(R.id.log_in_password);
+            if (mAuth.getCurrentUser() != null) {
+                logout();
+                log_in_out.setTitle("LOG IN");
+            } else {
+                DialogFragment df = new DialogFragment() {
+                    @NonNull
+                    @Override
+                    public Dialog onCreateDialog(Bundle savedInstanceState) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                        final View view = getActivity().getLayoutInflater().inflate(R.layout.login, null);
+                        builder.setView(view);
+                        // capture
+                        final EditText nameEditText = (EditText) view.findViewById(R.id.log_in_username);
+                        final EditText passwordEditText = (EditText) view.findViewById(R.id.log_in_password);
 
 
-                    //buttons
-                    builder.setNegativeButton(android.R.string.cancel, null);
-                    builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            if (!nameEditText.getText().toString().isEmpty()) {
-                                name = nameEditText.getText().toString();
+                        //buttons
+                        builder.setNegativeButton(android.R.string.cancel, null);
+                        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                if (!nameEditText.getText().toString().isEmpty()) {
+                                    name = nameEditText.getText().toString();
+                                } else {
+                                    log_in_out.setTitle("LOG IN");
+                                    return;
+                                }
+                                if (!passwordEditText.getText().toString().isEmpty()) {
+                                    password = passwordEditText.getText().toString();
+                                } else {
+                                    log_in_out.setTitle("LOG IN");
+                                    return;
+                                }
+
+                                emailLogIn();
                             }
-                            if (!passwordEditText.getText().toString().isEmpty()) {
-                                password = passwordEditText.getText().toString();
-                            }
-                            if(passwordEditText.getText().toString().equals("password")) {
-                                Log.d("TTT", "onClick: password checks out");
-                                Toast.makeText(getContext(), "Tried to login as: " + name, Toast.LENGTH_SHORT).show();
-                            }
+                        });
+                        return builder.create();
+                    }
 
-                            emailLogIn();
-                        }
-                    });
-
-                    return builder.create();
-                }
-
-            };
-            df.show(getSupportFragmentManager(), "add");
+                };
+                df.show(getSupportFragmentManager(), "add");
+                log_in_out.setTitle("LOG OUT");
+            }
         }
 
         return super.onOptionsItemSelected(item);
     }
 
     protected void emailLogIn() {
-        if (!(name.length() == 0 || name == null)) {
+        if (!(name == null || name.length() == 0)) {
             mAuth.signInWithEmailAndPassword(name,password).addOnCompleteListener(mOnCompleteListener);
-            FirebaseUser user = mAuth.getCurrentUser();
         }
 
+    }
+
+    protected void logout() {
+        mAuth.signOut();
+        Toast.makeText(getBaseContext(), "Logged out", Toast.LENGTH_SHORT).show();
+        name = "";
+        password = "";
     }
 
     @Override
@@ -205,7 +219,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task task) {
                 if(!task.isSuccessful()) {
-                    Log.d("TTT", "onComplete, user has logged in.");
+                    Toast.makeText(getBaseContext(), "Failed to log in as: " + name, Toast.LENGTH_SHORT).show();
+                } else {
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    Toast.makeText(getBaseContext(), "Logged in as: " + user.getEmail(), Toast.LENGTH_SHORT).show();
                 }
             }
         };
