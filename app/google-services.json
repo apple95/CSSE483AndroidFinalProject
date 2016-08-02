@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "737358401115",
+    "firebase_url": "https://csse483androidfinalprije-63abd.firebaseio.com",
+    "project_id": "csse483androidfinalprije-63abd",
+    "storage_bucket": "csse483androidfinalprije-63abd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:737358401115:android:3ada16e09c13c523",
+        "android_client_info": {
+          "package_name": "com.ashokrv95gmail.csse483androidfinalproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "737358401115-l6r1t4vtr9e8atie4luagj7lll8jk625.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9fuppCgKh-doeavqRFIQ7Cyo6OKBjlyM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
