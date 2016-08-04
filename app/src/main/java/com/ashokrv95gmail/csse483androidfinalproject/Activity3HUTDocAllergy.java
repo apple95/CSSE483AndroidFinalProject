@@ -36,7 +36,7 @@ public class Activity3HUTDocAllergy extends Activity{
                     startActivityForResult(myIntent,1);
 
                 }
-                
+
             }
         });
     }
