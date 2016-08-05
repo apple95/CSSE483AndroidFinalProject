@@ -7,19 +7,14 @@
         android:id="@+id/changeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
-        android:text="0123456789"
-        android:ems="10" />
+        android:text="0123456789"/>
     <Button
         android:id="@+id/Callphone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below ="@+id/changeText"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="118dp"
         android:text="Call" />
 
 

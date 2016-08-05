@@ -25,15 +25,13 @@ public class Activity2Emergency extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.phone_call);
         Button button = (Button) findViewById(R.id.Callphone);
-
         editText=(EditText)findViewById(R.id.changeText);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String number=editText.getText().toString();
                 Intent callIntent = new Intent(Intent.ACTION_CALL);
-                callIntent.setData(Uri.parse("tel:"+number));
+                callIntent.setData(Uri.parse("tel:"+editText.getText().toString()));
                 startActivity(callIntent);
             }
         });
