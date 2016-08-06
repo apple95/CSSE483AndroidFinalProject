@@ -17,5 +17,12 @@
         android:layout_centerHorizontal="true"
         android:text="Call" />
 
+    <Button
+        android:id="@+id/emergencyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below ="@+id/Callphone"
+        android:layout_centerHorizontal="true"
+        android:text="Book An Ambulance" />
 
 </LinearLayout>

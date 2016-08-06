@@ -36,6 +36,16 @@ public class Activity2Emergency extends Activity {
             }
         });
 
+        Button buttonNew  = (Button)findViewById(R.id.emergencyButton);
+        buttonNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(v.getContext() , ActivityAmbulance.class));
+            }
+        });
+
+
     }
 
 }
