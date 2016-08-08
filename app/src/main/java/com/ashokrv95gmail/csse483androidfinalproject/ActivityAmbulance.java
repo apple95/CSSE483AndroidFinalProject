@@ -20,7 +20,8 @@ public class ActivityAmbulance extends FragmentActivity implements OnMapReadyCal
         super.onCreate(savedInstanceState);
         setContentView(R.layout.google_maps);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+//        mapFragment.getMapAsync(this);
+
 
     }
 
