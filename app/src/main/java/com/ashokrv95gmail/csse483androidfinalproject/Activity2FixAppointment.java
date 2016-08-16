@@ -13,6 +13,6 @@ import android.widget.EditText;
 public class Activity2FixAppointment extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fix_appointment);
+        setContentView(R.layout.make_appt_test);
     }
 }
