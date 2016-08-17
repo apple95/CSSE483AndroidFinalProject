@@ -32,7 +32,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity {
+public class    MainActivity extends AppCompatActivity {
     private String name;
     private String password;
     private FirebaseAuth mAuth;
@@ -227,8 +227,13 @@ public class MainActivity extends AppCompatActivity {
                     name = "";
                     password = "";
                     log_in_out.setTitle("LOG OUT");
+                    checkUser(user);
                 }
             }
         };
+    }
+
+    private void checkUser(FirebaseUser user) {
+        // this is where the user will be checked for and made in firebase if it doesn't exist already
     }
 }
