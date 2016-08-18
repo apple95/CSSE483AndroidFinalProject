@@ -29,8 +29,15 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class    MainActivity extends AppCompatActivity {
     private String name;
@@ -234,6 +241,12 @@ public class    MainActivity extends AppCompatActivity {
     }
 
     private void checkUser(FirebaseUser user) {
-        // this is where the user will be checked for and made in firebase if it doesn't exist already
+        // this is where the user will be checked for and made in firebase if it doesn't exist
+        DatabaseReference firData = FirebaseDatabase.getInstance().getReference();
+//        firData.child("users").child(user.getUid());
+        Map<String, Object> data = new HashMap<>();
+        data.put("empty", true);
+        firData.child("users").child(user.getUid()).updateChildren(data);
+        Log.d("TTT", "checkUser: " + firData);
     }
 }
