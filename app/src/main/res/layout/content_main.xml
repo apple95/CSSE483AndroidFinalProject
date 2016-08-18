@@ -46,7 +46,7 @@
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_below="@+id/buttonemergency_view"
-        android:text="@string/fix_appointment"
+        android:text="USER DETAILS"
         android:layout_centerHorizontal="true"/>
     <Button
         android:id="@+id/buttonpay_view"
