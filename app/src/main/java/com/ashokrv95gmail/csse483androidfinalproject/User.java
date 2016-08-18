@@ -1,21 +1,21 @@
 package com.ashokrv95gmail.csse483androidfinalproject;
 
 public class User {
-    private int birthYear;
+    private String ssn;
     private String fullName;
     private String contactNumber;
-    private String CardNumber;
+    private String hospital;
 
     public User() {}
-    public User(String fullName, int birthYear,String contactNumber,String cardNumber) {
+    public User(String fullName, String ssn,String contactNumber,String hospital) {
         this.fullName = fullName;
-        this.birthYear = birthYear;
+        this.ssn = ssn;
 
         this.contactNumber = contactNumber;
-        this.CardNumber = cardNumber;
+        this.hospital = hospital;
     }
-    public long getBirthYear() {
-        return birthYear;
+    public String getssn() {
+        return ssn;
     }
     public String getFullName() {
         return fullName;
@@ -23,8 +23,8 @@ public class User {
     public String getContactNumber() {
         return contactNumber;
     }
-    public String getCardNumber() {
-        return CardNumber;
+    public String getHospital() {
+        return hospital;
     }
 
 

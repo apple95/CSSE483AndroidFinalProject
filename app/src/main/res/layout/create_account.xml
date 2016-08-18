@@ -7,14 +7,14 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/username"
+        android:id="@+id/fullname"
         android:hint="FULL NAME"
         android:layout_marginTop="50dp"
         android:gravity="center" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/email"
+        android:id="@+id/ssn"
         android:hint="SOCIAL SECURITY LAST FOUR DIGIT"
         android:layout_marginTop="20dp"
         android:gravity="center" />
@@ -30,7 +30,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/password"
+        android:id="@+id/hospitalVisited"
         android:hint="HOSPITAL VISITED"
         android:gravity="center"
         android:layout_marginTop="20dp"/>

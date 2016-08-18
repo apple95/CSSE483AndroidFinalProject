@@ -234,7 +234,7 @@ public class    MainActivity extends AppCompatActivity {
                     name = "";
                     password = "";
                     log_in_out.setTitle("LOG OUT");
-                    checkUser(user);
+                    //checkUser(user);
                 }
             }
         };
