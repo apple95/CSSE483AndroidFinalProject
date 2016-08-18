@@ -29,6 +29,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -46,6 +47,7 @@ public class    MainActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListener;
     private OnCompleteListener mOnCompleteListener;
     private MenuItem log_in_out;
+    private DataSnapshot snap;
 
 
     @Override
@@ -58,6 +60,33 @@ public class    MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         logout();
         initializeListeners();
+
+        FirebaseDatabase.getInstance().getReference().child("users").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                snap = dataSnapshot;
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                snap = dataSnapshot;
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+                snap = dataSnapshot;
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+                snap = dataSnapshot;
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                //nothing needed here
+            }
+        });
 
         final Button button = (Button) findViewById(R.id.button_view);
         Button button1 = (Button) findViewById(R.id.buttonemergency_view);
@@ -242,11 +271,15 @@ public class    MainActivity extends AppCompatActivity {
 
     private void checkUser(FirebaseUser user) {
         // this is where the user will be checked for and made in firebase if it doesn't exist
-        DatabaseReference firData = FirebaseDatabase.getInstance().getReference();
-//        firData.child("users").child(user.getUid());
-        Map<String, Object> data = new HashMap<>();
-        data.put("empty", true);
-        firData.child("users").child(user.getUid()).updateChildren(data);
-        Log.d("TTT", "checkUser: " + firData);
+        if (!snap.hasChild(user.getUid())) {
+            DatabaseReference firData = FirebaseDatabase.getInstance().getReference();
+            double totalbill = 0.0;
+            Map<String, Object> data = new HashMap<>();
+            data.put("bill", totalbill);
+            data.put("empty", true);
+            firData.child("users").child(user.getUid()).updateChildren(data);
+        } else {
+            // this is where any adjustments will be made
+        }
     }
 }
