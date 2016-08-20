@@ -41,12 +41,12 @@ public class ActivityAmbulance extends FragmentActivity {
 
         mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-        
+
        locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-       GettingMyLocationLatLang();
+       GettingMyLocationLatLong();
     }
 
-    private void GettingMyLocationLatLang() {
+    private void GettingMyLocationLatLong() {
         locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         LocationListener locationListener = new LocationListener() {
             public void onLocationChanged(Location location) {
@@ -58,7 +58,6 @@ public class ActivityAmbulance extends FragmentActivity {
                 mylat = location.getLatitude();
                 mylng = location.getLongitude();
 
-                Log.e("MyLatlong",mylat+", "+mylng);
 
                 if(currentMarker == 0){
                     Mylocationmarker = mMap.addMarker(new MarkerOptions()
