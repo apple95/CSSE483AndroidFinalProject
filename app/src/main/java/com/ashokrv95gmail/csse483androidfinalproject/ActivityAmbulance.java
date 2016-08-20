@@ -42,7 +42,7 @@ public class ActivityAmbulance extends FragmentActivity {
         mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
-       locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+      // locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
        GettingMyLocationLatLong();
     }
 
