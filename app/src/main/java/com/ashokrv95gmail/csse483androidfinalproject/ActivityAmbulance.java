@@ -41,28 +41,20 @@ public class ActivityAmbulance extends FragmentActivity {
 
         mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-
-
-         /*Getting Current Location*/
-//        locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-//        GettingMyLocationLatLang();
+        
+       locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+       GettingMyLocationLatLang();
     }
 
     private void GettingMyLocationLatLang() {
         locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-        Log.e("s", "s");
-
-        // Define a listener that responds to location updates
         LocationListener locationListener = new LocationListener() {
             public void onLocationChanged(Location location) {
-                // Called when a new location is found by the network location provider.
                 makeUseOfNewLocation(location);
 
             }
 
             private void makeUseOfNewLocation(Location location) {
-                Log.e("Lat", String.valueOf(location.getLatitude()));
-                Log.e("lng", String.valueOf(location.getLongitude()));
                 mylat = location.getLatitude();
                 mylng = location.getLongitude();
 
@@ -113,7 +105,7 @@ public class ActivityAmbulance extends FragmentActivity {
             }
         };
 
-        // Register the listener with the Location Manager to receive location updates
+
         if (locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
             if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 // TODO: Consider calling
