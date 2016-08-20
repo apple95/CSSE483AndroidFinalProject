@@ -50,11 +50,11 @@ public class ActivityAmbulance extends FragmentActivity {
         locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         LocationListener locationListener = new LocationListener() {
             public void onLocationChanged(Location location) {
-                makeUseOfNewLocation(location);
+               newLocation(location);
 
             }
 
-            private void makeUseOfNewLocation(Location location) {
+            private void newLocation(Location location) {
                 mylat = location.getLatitude();
                 mylng = location.getLongitude();
 
